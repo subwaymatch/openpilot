@@ -348,7 +348,7 @@ class DriverMonitoring:
       # should always be counting if distracted unless at standstill (lowspeed for always-on) and reaching orange
       # also will not be reaching 0 if DM is active when not engaged
       if not (standstill_exemption or always_on_red_exemption or always_on_lowspeed_exemption):
-        self.awareness = max(self.awareness - self.step_change, -0.1)
+        self.awareness = max(self.awareness - self.step_change * 0.0001, -0.1)
 
     alert = None
     if self.awareness <= 0.:
